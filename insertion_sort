@@ -1,0 +1,7 @@
+def insertion_sort(lst: list) ->list:
+    for i in range(1, len(lst)):
+        for j in range(i):
+            if lst[i] < lst[j]:
+                lst.insert(j, lst.pop(i))
+                break
+    return lst
