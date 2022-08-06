@@ -1,0 +1,14 @@
+def merge_sort(lst: list) -> list:
+    def wrapper(lst: list, left: int, right: int) -> list:
+        if (left < right):
+            mid = left + int((right-left)/2)
+            wrapper(lst, left, mid)
+            wrapper(lst, mid+1, right)
+            i, j = left, mid+1
+            while i < j and j < right+1:
+                if lst[i] > lst[j]:
+                    lst.insert(i, lst.pop(j))
+                    j += 1
+                i += 1
+        return lst
+    return wrapper(lst, 0, len(lst)-1)
